@@ -81,9 +81,20 @@ extension Notification {
 public extension Notification {
     func send() {
         #if os(macOS)
-            // TODO: Either deliver now or schedule for later based on the notification's deliver date
-            let userNotification = self.asNSUserNotification
-            NSUserNotificationCenter.default.deliver(userNotification)
+            var osaScript = "display notification \"\(self.body ?? "")\""
+            if let title = self.title {
+                osaScript += " with title \"\(title)\""
+            }
+            if let subtitle = self.subtitle {
+                osaScript += " subtitle \"\(subtitle)\""
+            }
+            if let soundName = self.soundName {
+                osaScript += " sound name \"\(soundName)\""
+            }
+            let process = Process()
+            process.launchPath = "/usr/bin/osascript"
+            process.arguments = ["-e", osaScript]
+            process.launch()
         #else
             fatalError("not yet implemented")
         #endif
