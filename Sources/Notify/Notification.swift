@@ -67,6 +67,12 @@ extension Notification {
         let userNotification = NSUserNotification()
         userNotification.title = self.title
         userNotification.subtitle = self.subtitle
+        userNotification.informativeText = self.body
+        userNotification.contentImage = self.contentImage?.asNSImage
+        userNotification.identifier = self.identifier
+        userNotification.responsePlaceholder = self.responsePlaceholder
+        userNotification.deliveryDate = self.deliveryDate
+        userNotification.soundName = self.soundName
 
         return userNotification
     }
