@@ -10,7 +10,7 @@ class NotifyTests: XCTestCase {
             .contentImage(Image(url: URL(string: "image")!))
             .identifier("identifier")
             .responsePlaceholder("responsePlaceholder")
-            .deliverDate(Date.distantFuture)
+            .deliveryDate(Date.distantFuture)
             .soundName(NSUserNotificationDefaultSoundName)
 
         XCTAssertEqual(notification.title, "title")
@@ -19,7 +19,7 @@ class NotifyTests: XCTestCase {
         XCTAssertEqual(notification.contentImage?.url.absoluteString, "image")
         XCTAssertEqual(notification.identifier, "identifier")
         XCTAssertEqual(notification.responsePlaceholder, "responsePlaceholder")
-        XCTAssertEqual(notification.deliverDate, Date.distantFuture)
+        XCTAssertEqual(notification.deliveryDate, Date.distantFuture)
         XCTAssertEqual(notification.soundName, NSUserNotificationDefaultSoundName)
     }
 

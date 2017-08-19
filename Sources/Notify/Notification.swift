@@ -44,11 +44,11 @@ public class Notification {
     var responsePlaceholder: String?
 
     /// Specifies when the notification should be delivered.
-    public func deliverDate(_ deliverDate: Date?) -> Notification {
-        self.deliverDate = deliverDate
+    public func deliveryDate(_ deliveryDate: Date?) -> Notification {
+        self.deliveryDate = deliveryDate
         return self
     }
-    var deliverDate: Date?
+    var deliveryDate: Date?
 
     /// Specifies the name of the sound to play when the notification is delivered.
     public func soundName(_ soundName: String?) -> Notification {
