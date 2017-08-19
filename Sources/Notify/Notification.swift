@@ -66,10 +66,3 @@ public extension Notification {
         // Either deliver now or schedule for later based on the notification's deliver date
     }
 }
-
-//public extension Notification {
-//    enum Style {
-//        case action(title: String)
-//    }
-//}
-
