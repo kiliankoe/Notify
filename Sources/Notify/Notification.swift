@@ -61,8 +61,25 @@ public class Notification {
     public init() { }
 }
 
+@available(macOS 10, *) // is this correct?
+extension Notification {
+    var asNSUserNotification: NSUserNotification {
+        let userNotification = NSUserNotification()
+        userNotification.title = self.title
+        userNotification.subtitle = self.subtitle
+
+        return userNotification
+    }
+}
+
 public extension Notification {
     func send() {
-        // Either deliver now or schedule for later based on the notification's deliver date
+        #if os(macOS)
+            // TODO: Either deliver now or schedule for later based on the notification's deliver date
+            let userNotification = self.asNSUserNotification
+            NSUserNotificationCenter.default.deliver(userNotification)
+        #else
+            fatalError("not yet implemented")
+        #endif
     }
 }
