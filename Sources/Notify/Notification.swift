@@ -22,33 +22,33 @@ public class Notification {
     }
     var body: String?
 
-    /// Image shown in the content of the notification.
-    public func contentImage(_ contentImage: Image?) -> Notification {
-        self.contentImage = contentImage
-        return self
-    }
-    var contentImage: Image?
-
-    /// A string that uniquely identifies a notification.
-    public func identifier(_ identifier: String?) -> Notification {
-        self.identifier = identifier
-        return self
-    }
-    var identifier: String?
-
-    /// Optional placeholder string for inline reply field.
-    public func responsePlaceholder(_ responsePlaceholder: String?) -> Notification {
-        self.responsePlaceholder = responsePlaceholder
-        return self
-    }
-    var responsePlaceholder: String?
-
-    /// Specifies when the notification should be delivered.
-    public func deliveryDate(_ deliveryDate: Date?) -> Notification {
-        self.deliveryDate = deliveryDate
-        return self
-    }
-    var deliveryDate: Date?
+//    /// Image shown in the content of the notification.
+//    public func contentImage(_ contentImage: Image?) -> Notification {
+//        self.contentImage = contentImage
+//        return self
+//    }
+//    var contentImage: Image?
+//
+//    /// A string that uniquely identifies a notification.
+//    public func identifier(_ identifier: String?) -> Notification {
+//        self.identifier = identifier
+//        return self
+//    }
+//    var identifier: String?
+//
+//    /// Optional placeholder string for inline reply field.
+//    public func responsePlaceholder(_ responsePlaceholder: String?) -> Notification {
+//        self.responsePlaceholder = responsePlaceholder
+//        return self
+//    }
+//    var responsePlaceholder: String?
+//
+//    /// Specifies when the notification should be delivered.
+//    public func deliveryDate(_ deliveryDate: Date?) -> Notification {
+//        self.deliveryDate = deliveryDate
+//        return self
+//    }
+//    var deliveryDate: Date?
 
     /// Specifies the name of the sound to play when the notification is delivered.
     public func soundName(_ soundName: String?) -> Notification {
@@ -63,19 +63,19 @@ public class Notification {
 
 @available(macOS 10, *) // is this correct?
 extension Notification {
-    var asNSUserNotification: NSUserNotification {
-        let userNotification = NSUserNotification()
-        userNotification.title = self.title
-        userNotification.subtitle = self.subtitle
-        userNotification.informativeText = self.body
-        userNotification.contentImage = self.contentImage?.asNSImage
-        userNotification.identifier = self.identifier
-        userNotification.responsePlaceholder = self.responsePlaceholder
-        userNotification.deliveryDate = self.deliveryDate
-        userNotification.soundName = self.soundName
-
-        return userNotification
-    }
+//    var asNSUserNotification: NSUserNotification {
+//        let userNotification = NSUserNotification()
+//        userNotification.title = self.title
+//        userNotification.subtitle = self.subtitle
+//        userNotification.informativeText = self.body
+//        userNotification.contentImage = self.contentImage?.asNSImage
+//        userNotification.identifier = self.identifier
+//        userNotification.responsePlaceholder = self.responsePlaceholder
+//        userNotification.deliveryDate = self.deliveryDate
+//        userNotification.soundName = self.soundName
+//
+//        return userNotification
+//    }
 }
 
 public extension Notification {
