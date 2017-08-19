@@ -2,15 +2,29 @@ import XCTest
 @testable import Notify
 
 class NotifyTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Notify().text, "Hello, World!")
+    func testBuilder() {
+        let notification = Notify.Notification()
+            .title("title")
+            .subtitle("subtitle")
+            .body("body")
+            .contentImage(Image(url: URL(string: "image")!))
+            .identifier("identifier")
+            .responsePlaceholder("responsePlaceholder")
+            .deliverDate(Date.distantFuture)
+            .soundName(NSUserNotificationDefaultSoundName)
+
+        XCTAssertEqual(notification.title, "title")
+        XCTAssertEqual(notification.subtitle, "subtitle")
+        XCTAssertEqual(notification.body, "body")
+        XCTAssertEqual(notification.contentImage?.url.absoluteString, "image")
+        XCTAssertEqual(notification.identifier, "identifier")
+        XCTAssertEqual(notification.responsePlaceholder, "responsePlaceholder")
+        XCTAssertEqual(notification.deliverDate, Date.distantFuture)
+        XCTAssertEqual(notification.soundName, NSUserNotificationDefaultSoundName)
     }
 
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testBuilder", testBuilder),
     ]
 }
